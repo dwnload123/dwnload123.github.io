@@ -21,17 +21,18 @@ export class WeatherHomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.getWheatherDatas(this.initialCityName);
+    this.getWeatherDatas(this.initialCityName);
   }
 
-  getWheatherDatas(cityName: string) {
+  getWeatherDatas(cityName: string) {
     this.weatherService.getWeatherDatas(cityName)
     .pipe(
       takeUntil(this.destroy$)
     )
     .subscribe({
       next: (response) => {
-        console.log('response', response)
+        response && (this.weatherDatas = response);
+        console.log('weather datas chamada API:', this.weatherDatas)
       },
       error: (error) => {
         console.log('error', error)
@@ -43,7 +44,7 @@ export class WeatherHomeComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    this.getWheatherDatas(this.initialCityName);
+    this.getWeatherDatas(this.initialCityName);
   }
 
   ngOnDestroy(): void {
