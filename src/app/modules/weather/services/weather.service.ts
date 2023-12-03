@@ -14,6 +14,6 @@ export class WeatherService {
   ) { }
 
   getWeatherDatas(cityName: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/weather?q=${cityName}&metric=units&mode=json&appid=${this.apiKey}`, {});
+    return this.http.get(`${this.baseUrl}/weather?q=${cityName}&units=metric&mode=json&appid=${this.apiKey}`, {});
   }
 }
