@@ -5,11 +5,11 @@ import { WeatherHomeComponent } from './modules/weather/pages/weather-home/weath
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'wheater',
+    redirectTo: 'weather',
     pathMatch: 'full',
   },
   {
-    path: 'wheater',
+    path: 'weather',
     component: WeatherHomeComponent,
   }
 ];
